@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INSINA – Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0e0e0e;
+      --gold: #c5a76e;
+      --ivory: #f5f5f2;
+      --serif: 'Playfair Display', serif;
+      --sans: 'Open Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--black);
+      color: var(--ivory);
+      font-family: var(--sans);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 0 20px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .notify {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      animation: fadeIn 2s ease-out;
+    }
+
+    input[type="email"] {
+      padding: 12px 16px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--ivory);
+      font-family: var(--sans);
+      font-size: 1rem;
+      width: 250px;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+
+    button {
+      background: var(--gold);
+      border: none;
+      color: var(--black);
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #b5965c;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      input[type="email"] {
+        width: 100%;
+      }
+      .notify {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>INSINA</h1>
+  <h2>A world of exquisite perfumes and timeless elegance. <br />Our signature scents are arriving soon.</h2>
+
+  <form class="notify">
+    <input type="email" placeholder="Enter your email" required />
+    <button type="submit">Notify Me</button>
+  </form>
+
+  <footer>&copy; 2025 INSINA. All rights reserved.</footer>
+
+</body>
+</html>
