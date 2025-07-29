@@ -4,84 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>INSINA — Coming Soon</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Bodoni+Moda:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --midnight: #0B1F3A;
-      --gold: #D4AF37;
-      --light: #E5E5E5;
+      --deep-midnight: #050e1e;
+      --lux-gold: #D4AF37;
+      --lux-glow: rgba(11, 31, 58, 0.7);
+      --light: #dcdcdc;
     }
+
     html, body {
       margin: 0; padding: 0;
       height: 100%;
       background: var(--midnight);
-      color: var(--light);
       font-family: 'Montserrat', sans-serif;
-      overflow: hidden;
+      color: var(--light);
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      overflow: hidden;
       text-align: center;
     }
+
     .container {
-      position: relative;
       perspective: 1000px;
+      animation: float 6s ease-in-out infinite;
+      position: relative;
     }
+
     .logo {
-      font-family: 'Bodoni Moda', serif;
-      font-size: 5rem;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      transform: rotate3d(1,0,0,20deg) translateZ(50px);
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 5.2rem;
+      letter-spacing: 0.3em;
+      color: var(--lux-gold);
+      position: relative;
       opacity: 0;
-      animation: logoIn 2s ease-out forwards;
+      animation: fadeInZoom 1.8s ease-out forwards;
     }
-    .coming {
-      margin-top: 1.5rem;
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: #0B1F3A;
-      letter-spacing: 0.1em;
-      font-family: 'Montserrat', sans-serif;
-      transform: translateY(20px);
-      opacity: 0;
-      animation: textIn 2s 1.2s ease-out forwards;
-    }
-    /* Subtle gold shimmer effect */
+
     .logo::after {
       content: '';
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0));
-      mix-blend-mode: overlay;
+      background: linear-gradient(90deg, var(--deep-midnight), transparent);
+      opacity: 0.15;
       transform: translateX(-100%);
-      animation: shimmer 3s infinite 1s;
+      animation: shimmerDark 4s infinite;
+      mix-blend-mode: overlay;
+      border-radius: 2px;
     }
-    @keyframes logoIn {
-      0% { opacity: 0; transform: rotate3d(1,0,0,25deg) translateZ(-50px); }
-      100% { opacity: 1; transform: rotate3d(1,0,0,0deg) translateZ(0); }
+
+    .coming {
+      font-size: 1.25rem;
+      font-weight: 300;
+      margin-top: 1.5rem;
+      letter-spacing: 0.15em;
+      color: var(--light);
+      opacity: 0;
+      animation: fadeInUp 2.5s 1s ease-out forwards;
     }
-    @keyframes textIn {
+
+    @keyframes fadeInZoom {
+      0% { opacity: 0; transform: scale(0.95) rotateX(15deg); }
+      100% { opacity: 1; transform: scale(1) rotateX(0deg); }
+    }
+
+    @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    @keyframes shimmer {
-      0% { transform: translateX(-100%) rotate(0deg); }
-      100% { transform: translateX(200%) rotate(0deg); }
+
+    @keyframes shimmerDark {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
     }
-    /* Slight floating motion */
-    .container {
-      animation: float 6s ease-in-out infinite;
-    }
+
     @keyframes float {
-      0%,100% { transform: translateY(0); }
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(10px); }
     }
+
     @media (max-width: 768px) {
-      .logo { font-size: 3rem; }
-      .coming { font-size: 1.2rem; }
+      .logo { font-size: 3rem; letter-spacing: 0.15em; }
+      .coming { font-size: 1rem; }
     }
   </style>
 </head>
