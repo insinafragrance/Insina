@@ -2,48 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>INSINA — Coming Soon</title>
 
-  <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --midnight: #0B1F3A;
-      --deep-midnight: #050e1e;
-      --lux-gold: #D4AF37;
-      --lux-glow: rgba(11, 31, 58, 0.7);
-      --light: #dcdcdc;
+      --deepblue: #071427;
+      --gold: #D4AF37;
+      --white: #fefefe;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
-      margin: 0; padding: 0;
+      width: 100%;
       height: 100%;
-      background: var(--midnight);
+      background-color: var(--midnight);
+      color: var(--white);
       font-family: 'Montserrat', sans-serif;
-      color: var(--light);
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
       text-align: center;
     }
 
     .container {
-      perspective: 1000px;
+      perspective: 1200px;
       animation: float 6s ease-in-out infinite;
       position: relative;
     }
 
     .logo {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 5.2rem;
-      letter-spacing: 0.3em;
-      color: var(--lux-gold);
+      font-family: 'EB Garamond', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      letter-spacing: 0.25rem;
       position: relative;
       opacity: 0;
-      animation: fadeInZoom 1.8s ease-out forwards;
+      animation: logoIn 2s ease-out forwards;
     }
 
     .logo::after {
@@ -51,35 +56,34 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: linear-gradient(90deg, var(--deep-midnight), transparent);
-      opacity: 0.15;
+      background: linear-gradient(90deg, rgba(255,255,255,0.4), transparent);
+      mix-blend-mode: screen;
       transform: translateX(-100%);
-      animation: shimmerDark 4s infinite;
-      mix-blend-mode: overlay;
-      border-radius: 2px;
+      animation: shimmer 3.5s infinite ease-in-out 1.5s;
     }
 
-    .coming {
-      font-size: 1.25rem;
-      font-weight: 300;
+    .subtitle {
       margin-top: 1.5rem;
-      letter-spacing: 0.15em;
-      color: var(--light);
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.15rem;
+      color: var(--white);
       opacity: 0;
-      animation: fadeInUp 2.5s 1s ease-out forwards;
+      animation: subtitleIn 2s 1s ease-out forwards;
     }
 
-    @keyframes fadeInZoom {
-      0% { opacity: 0; transform: scale(0.95) rotateX(15deg); }
-      100% { opacity: 1; transform: scale(1) rotateX(0deg); }
+    /* Animations */
+    @keyframes logoIn {
+      0% { opacity: 0; transform: scale(0.95) rotateX(10deg); }
+      100% { opacity: 1; transform: scale(1) rotateX(0); }
     }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
+    @keyframes subtitleIn {
+      0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes shimmerDark {
+    @keyframes shimmer {
       0% { transform: translateX(-100%); }
       100% { transform: translateX(200%); }
     }
@@ -90,15 +94,20 @@
     }
 
     @media (max-width: 768px) {
-      .logo { font-size: 3rem; letter-spacing: 0.15em; }
-      .coming { font-size: 1rem; }
+      .logo {
+        font-size: 3rem;
+        letter-spacing: 0.1rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">INSINA</div>
-    <div class="coming">Perfumes & More | Coming Soon</div>
+    <div class="subtitle">Perfumes & More — Coming Soon</div>
   </div>
 </body>
 </html>
